@@ -3,7 +3,7 @@ import asyncio
 import logging
 import tempfile
 from pathlib import Path
-from asyncLogger import AsyncLogger
+from . import AsyncLogger
 
 
 @pytest.fixture(scope="function")

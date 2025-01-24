@@ -346,7 +346,7 @@ class ANSIColors(Enum):
 
         Example:
             colorized = ANSIColors.format(
-                "<green>Success:</green> File <blue>example.txt</blue> created"
+                "<green><bold>Success: File <blue>example.txt created"
                 level_color='RED'
             )
             print(f"{colorized}")
