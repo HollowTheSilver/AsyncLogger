@@ -2,8 +2,6 @@
 
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![Python](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
-[![Tests](https://github.com/HollowTheSilver/AsyncLogger/workflows/Tests/badge.svg)](https://github.com/HollowTheSilver/AsyncLogger/actions)
-[![Coverage](https://codecov.io/gh/HollowTheSilver/AsyncLogger/branch/main/graph/badge.svg)](https://codecov.io/gh/HollowTheSilver/AsyncLogger)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![Documentation Status](https://readthedocs.org/projects/asynclogger/badge/?version=latest)](https://asynclogger.readthedocs.io/)
 
