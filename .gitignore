@@ -3,6 +3,10 @@ logs/
 *.log
 log/
 
+# Release Directories
+release/
+releases/
+
 # Python Bytecode and Compiled Files
 __pycache__/
 *.py[cod]
