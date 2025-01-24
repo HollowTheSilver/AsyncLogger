@@ -182,7 +182,7 @@ AsyncLogger supports rich message formatting with color and styling. Color and s
 # Custom console format with colors
 logger = await AsyncLogger.create(
     name="StyleExample",
-    console_format="<green>[{time}]<reset> [<level_color><bold>{levelname><reset>] <gray>{message}",
+    console_format="[<red>{asctime}<reset>] [<level_color><bold>{levelname}<reset>] <gray>{message}",
     file_format="[{time}] [{levelname}] {message}"
 )
 ```
