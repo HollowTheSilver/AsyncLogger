@@ -213,14 +213,12 @@ Open-source license (MIT/Apache recommended)
 ## 📞 Support
 
 - GitHub Issues: Report bugs, request features
-- Email: [Maintainer Contact]
-- Community Discord/Slack Channel
+- Email: hollowstools@gmail.com
 
 ## 🌐 Project Links
 
-- GitHub Repository: [Repository URL]
-- Documentation: [Documentation URL]
-- PyPI Package: [Package URL]
+- GitHub Repository: https://github.com/HollowTheSilver/AsyncLogger/
+- Documentation: https://github.com/HollowTheSilver/AsyncLogger/wiki
 
 ---
 
