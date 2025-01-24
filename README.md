@@ -1,8 +1,8 @@
 # AsyncLogger: Advanced Asynchronous Logging Framework
 
-## Executive Summary
+## Project Overview
 
-AsyncLogger is a cutting-edge Python logging solution designed to meet the complex logging requirements of modern, high-performance asynchronous applications. Developed with a focus on security, performance, and flexibility, this module provides developers with a powerful tool for robust logging across various computing environments.
+AsyncLogger represents a sophisticated logging solution engineered to address the complex logging requirements of modern, high-performance asynchronous Python applications. Designed with a strategic focus on security, performance, and extensibility, this framework provides developers with a robust toolset for comprehensive log management across diverse computing environments.
 
 ## 🌟 Key Differentiators
 
@@ -11,36 +11,6 @@ AsyncLogger is a cutting-edge Python logging solution designed to meet the compl
 - **Advanced Security Mechanisms**: Comprehensive protection against log injection
 - **Intelligent Log Management**: Automatic file rotation and sanitization
 - **Flexible Configuration**: Highly customizable logging behavior
-
-## 📦 Technical Specifications
-
-### Architecture and Design Principles
-
-#### Core Components
-1. **Asynchronous Logging Engine**
-   - Utilizes Python's `asyncio` for non-blocking log operations
-   - Supports concurrent logging across multiple application threads
-   - Minimizes performance overhead through efficient design
-
-2. **Robust Error Handling**
-   - Captures and preserves failed log entries
-   - Provides detailed error tracking and metrics
-   - Implements fail-safe logging mechanisms
-
-3. **Data Security Framework**
-   - Automatic sanitization of log messages
-   - Protection against sensitive data exposure
-   - Intelligent handling of complex data types
-
-### Technical Capabilities
-
-| Feature | Description | Technical Implementation |
-|---------|-------------|--------------------------|
-| **Async Logging** | Non-blocking log writes | Leverages `asyncio` event loop |
-| **Color Output** | Customizable console logging | ANSI color code generation |
-| **Log Rotation** | Automatic file management | Configurable size-based rotation |
-| **Metrics Tracking** | Performance and error monitoring | Built-in `LoggerMetrics` class |
-| **Data Sanitization** | Secure log message processing | Advanced string manipulation |
 
 ## 🛠 Installation and Setup
 
@@ -51,12 +21,37 @@ AsyncLogger is a cutting-edge Python logging solution designed to meet the compl
 
 ### Installation Methods
 
+#### Direct from GitHub (Recommended for Development)
 ```bash
-# Install via pip
-pip install asynclogger
+# Clone the repository
+git clone https://github.com/HollowTheSilver/AsyncLogger.git
 
-# For development version
-pip install git+https://github.com/HollowTheSilver/asynclogger.git
+# Navigate to the project directory
+cd AsyncLogger
+
+# Install in editable mode
+pip install -e .
+```
+
+#### Local Installation
+```bash
+# Clone the repository
+git clone https://github.com/HollowTheSilver/AsyncLogger.git
+
+# Navigate to the project directory
+cd AsyncLogger
+
+# Install dependencies
+pip install -r requirements.txt
+```
+
+### Development Setup
+```bash
+# Install development dependencies
+pip install -r requirements.txt
+
+# Run tests
+pytest
 ```
 
 ## 💻 Usage Examples
