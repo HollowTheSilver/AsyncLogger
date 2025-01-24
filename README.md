@@ -28,8 +28,6 @@ AsyncLogger is particularly well-suited for:
 
 ## 🛠 Installation and Setup
 
-AsyncLogger provides multiple installation methods to suit different development workflows and deployment scenarios. Choose the method that best aligns with your needs:
-
 ### Prerequisites
 - Python 3.9 or higher
 - `asyncio` library (included in Python standard library)
@@ -62,6 +60,34 @@ cd AsyncLogger
 4. Verify the installation:
 ```bash
 python -c "import asyncLogger; print(asyncLogger.__version__)"
+```
+
+## ⚡ Quick Start
+
+Get started with AsyncLogger in minutes:
+
+```python
+import asyncio
+from asyncLogger import AsyncLogger
+
+async def quick_example():
+    # Create a basic logger
+    logger = await AsyncLogger.create(
+        name="QuickStart",
+        log_dir="logs"
+    )
+    
+    # Log your first message
+    await logger.info("Hello AsyncLogger!")
+    
+    # Add context with extras
+    await logger.info("User logged in", extras={"user_id": "123"})
+    
+    # Clean up
+    await logger.shutdown()
+
+if __name__ == "__main__":
+    asyncio.run(quick_example())
 ```
 
 ## 💻 Usage Examples
@@ -115,34 +141,6 @@ async def main():
 asyncio.run(main())
 ```
 
-## ⚡ Quick Start
-
-Get started with AsyncLogger in minutes:
-
-```python
-import asyncio
-from asyncLogger import AsyncLogger
-
-async def quick_example():
-    # Create a basic logger
-    logger = await AsyncLogger.create(
-        name="QuickStart",
-        log_dir="logs"
-    )
-    
-    # Log your first message
-    await logger.info("Hello AsyncLogger!")
-    
-    # Add context with extras
-    await logger.info("User logged in", extras={"user_id": "123"})
-    
-    # Clean up
-    await logger.shutdown()
-
-if __name__ == "__main__":
-    asyncio.run(quick_example())
-```
-
 ### Error Handling Best Practices
 
 ```python
@@ -163,26 +161,7 @@ async def handle_errors():
         )
 ```
 
-## 🔧 Configuration Options
-
-### Message Formatting
-
-AsyncLogger supports rich message formatting with color and styling:
-
-```python
-# Custom console format with colors
-logger = await AsyncLogger.create(
-    name="StyleExample",
-    console_format="[<green>{time}</green>] <level_color>{message}</level_color>",
-    file_format="[{time}] [{level}] {message}"
-)
-
-# Available color tags: green, red, blue, yellow, magenta, cyan, gray
-# Special tags: level_color (changes based on log level)
-# Styles: bold, underline, italic
-```
-
-### Comprehensive Configuration Parameters
+## 🔧 Configuration Parameters
 
 | Parameter | Type | Description | Default Value |
 |-----------|------|-------------|---------------|
@@ -194,6 +173,62 @@ logger = await AsyncLogger.create(
 | `level` | `int` | Minimum logging severity level | `logging.DEBUG` |
 | `max_bytes` | `int` | Maximum log file size | 10,485,760 (10 MB) |
 | `backup_count` | `int` | Number of rotated log files | 5 |
+
+## 🎨 Message Formatting and Styling
+
+AsyncLogger supports rich message formatting with color and styling. Color and style tags are applied sequentially without requiring closing tags:
+
+```python
+# Custom console format with colors
+logger = await AsyncLogger.create(
+    name="StyleExample",
+    console_format="<green><bold>[{time}] <level_color>{message}",
+    file_format="[{time}] [{level}] {message}"
+)
+```
+
+### Available ANSI Colors and Styles
+
+| Category | Name | Description | Code |
+|----------|------|-------------|------|
+| Basic Colors | BLACK | Standard black text | \x1b[30m |
+| | RED | Standard red text | \x1b[31m |
+| | GREEN | Standard green text | \x1b[32m |
+| | YELLOW | Standard yellow text | \x1b[33m |
+| | BLUE | Standard blue text | \x1b[34m |
+| | MAGENTA | Standard magenta text | \x1b[35m |
+| | CYAN | Standard cyan text | \x1b[36m |
+| | WHITE | Standard white text | \x1b[37m |
+| | GRAY | Standard gray text | \x1b[90m |
+| Dark Colors | DARK_RED | Deep red text | \x1b[38;5;88m |
+| | DARK_GREEN | Deep green text | \x1b[38;5;22m |
+| | DARK_YELLOW | Deep yellow text | \x1b[38;5;58m |
+| | DARK_BLUE | Deep blue text | \x1b[38;5;18m |
+| | DARK_MAGENTA | Deep magenta text | \x1b[38;5;90m |
+| | DARK_CYAN | Deep cyan text | \x1b[38;5;23m |
+| | DARK_GRAY | Deep gray text | \x1b[38;5;240m |
+| Bright Colors | BRIGHT_RED | Vivid red text | \x1b[91m |
+| | BRIGHT_GREEN | Vivid green text | \x1b[92m |
+| | BRIGHT_YELLOW | Vivid yellow text | \x1b[93m |
+| | BRIGHT_BLUE | Vivid blue text | \x1b[94m |
+| | BRIGHT_MAGENTA | Vivid magenta text | \x1b[95m |
+| | BRIGHT_CYAN | Vivid cyan text | \x1b[96m |
+| | BRIGHT_WHITE | Vivid white text | \x1b[97m |
+| Muted Colors | MUTED_RED | Soft red text | \x1b[38;5;131m |
+| | MUTED_GREEN | Soft green text | \x1b[38;5;108m |
+| | MUTED_BLUE | Soft blue text | \x1b[38;5;67m |
+| | MUTED_YELLOW | Soft yellow text | \x1b[38;5;136m |
+| | MUTED_MAGENTA | Soft magenta text | \x1b[38;5;132m |
+| | MUTED_CYAN | Soft cyan text | \x1b[38;5;73m |
+| Text Styles | BOLD | Bold text weight | \x1b[1m |
+| | DIM | Dimmed text intensity | \x1b[2m |
+| | ITALIC | Italic text style | \x1b[3m |
+| | UNDERLINE | Underlined text | \x1b[4m |
+| | BLINK | Blinking text | \x1b[5m |
+| | REVERSE | Reversed colors | \x1b[7m |
+| | HIDDEN | Hidden text | \x1b[8m |
+| | STRIKE | Strikethrough text | \x1b[9m |
+| Reset | RESET | Reset all formatting | \x1b[0m |
 
 ## 📊 Monitoring and Diagnostics
 
