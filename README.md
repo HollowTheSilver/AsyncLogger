@@ -203,13 +203,6 @@ Semantic Versioning (SemVer) used:
 Copyright © HollowTheSilver 2024-2025
 Open-source license (MIT/Apache recommended)
 
-## 🚀 Future Roadmap
-
-- Enhanced log analysis tools
-- More granular configuration options
-- Improved cloud and distributed system support
-- Machine learning-based log anomaly detection
-
 ## 📞 Support
 
 - GitHub Issues: Report bugs, request features
