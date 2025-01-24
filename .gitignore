@@ -7,6 +7,10 @@ log/
 release/
 releases/
 
+# Backup Directories
+backup/
+backups/
+
 # Python Bytecode and Compiled Files
 __pycache__/
 *.py[cod]
