@@ -11,7 +11,7 @@ AsyncLogger is an enterprise-grade logging framework engineered to address the c
 
 The framework empowers developers to implement comprehensive logging strategies with minimal computational overhead, ensuring critical application insights are captured efficiently and securely across diverse computing environments.
 
-## 🚀 Why AsyncLogger?
+## 🚀 Why Async Logger?
 
 ### Unparalleled Logging Solutions
 
