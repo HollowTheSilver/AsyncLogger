@@ -485,4 +485,3 @@ Open-source license (MIT/Apache recommended)
 ---
 
 **Disclaimer**: AsyncLogger is continually evolving. Always refer to the latest documentation and release notes.
-```
