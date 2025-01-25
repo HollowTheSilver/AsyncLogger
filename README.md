@@ -355,31 +355,44 @@ logger = await AsyncLogger.create(
 
 ## 🛡️ Security Features
 
-1. **Message Sanitization**
-   - Strips control characters 
-   - Prevents log injection
-   - Truncates oversized messages
+### Comprehensive Security Engineering
 
-2. **Extras Processing**  
-   - Validates and sanitizes additional context data
-   - Masks potentially sensitive information
-   - Enforces strict key and value length limits
+1. **Advanced Message Sanitization**
+   - Strips control characters to prevent injection attacks
+   - Dynamically detects and neutralizes potential security risks
+   - Implements multi-layered input validation
 
-3. **Error Resilience**   
-   - Captures failed log entries
-   - Provides detailed error tracking 
-   - Prevents logging process from disrupting main application
+2. **Sophisticated Extras Processing**
+   - Implements strict validation for additional context data
+   - Provides adaptive masking for potentially sensitive information
+   - Enforces granular key and value length restrictions
+   - Prevents log-based information disclosure
 
-4. **Compliance Ready**
+3. **Proactive Vulnerability Prevention**
+   - Implements regex-based sanitization techniques
+   - Detects and neutralizes potential log injection attempts
+   - Provides configurable security thresholds
+   - Supports custom security rule definitions
+
+4. **Error Resilience and Logging Security**
+   - Captures and securely logs failed log entry attempts
+   - Provides detailed, controlled error tracking
+   - Ensures logging processes cannot be exploited
+   - Prevents information leakage during error scenarios
+
+5. **Compliance and Security Standards**
    - GDPR-compatible logging patterns
-   - PII detection and masking capabilities 
-   - Audit-friendly log formats
+   - Built-in Personally Identifiable Information (PII) detection
+   - Automatic masking of sensitive data elements
+   - Audit-trail friendly log format generation
 
-AsyncLogger provides strong safeguards against common log-based security vulnerabilities. The sanitization layer detects and removes potentially malicious control characters and oversized messages that could enable log injection attacks. Key/value pairs included as context are validated and truncated to enforce length limits.
+### Security Design Philosophy
 
-The framework also incorporates advanced data protection features. Sensitive fields are automatically masked to prevent unintentional exposure. The logger uses GDPR-compliant log storage and handles Personally Identifiable Information (PII) securely in accordance with regulations.
-
-AsyncLogger's robust error resilience ensures the main application flow is never disrupted by logging issues. Failed log entries are captured separately for later analysis and the logging process itself is isolated to prevent cascading failures.
+AsyncLogger's security model is built on the principle of "secure by design":
+- Every log entry is treated as potentially malicious
+- Input validation occurs at multiple stages
+- Fail-safe mechanisms prevent potential information disclosure
+- Continuous security assessment during log processing
 
 ## 🔬 Performance Considerations
 
