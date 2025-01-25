@@ -52,7 +52,7 @@ The framework empowers developers to implement comprehensive logging strategies 
 - **Locale-Aware Formatting**: Respects locale settings for dates, numbers, and currencies
 - **UTF-8 Everywhere**: Standardizes on UTF-8 encoding for maximum interoperability
 
-### AsyncLogger is perfectly suited for:
+#### AsyncLogger is perfectly suited for:
 - Microservices Architecture 
 - High-Performance Applications
 - Security-Critical Systems
