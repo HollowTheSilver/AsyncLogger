@@ -1,0 +1,134 @@
+import React, { useState } from 'react';
+import { Card, CardHeader, CardTitle, CardContent, CardFooter } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+
+// Color and style definitions matching the README
+const ANSI_COLORS = {
+  basic: [
+    'BLACK', 'RED', 'GREEN', 'YELLOW', 
+    'BLUE', 'MAGENTA', 'CYAN', 'WHITE', 'GRAY'
+  ],
+  dark: [
+    'DARK_RED', 'DARK_GREEN', 'DARK_YELLOW', 
+    'DARK_BLUE', 'DARK_MAGENTA', 'DARK_CYAN', 'DARK_GRAY'
+  ],
+  bright: [
+    'BRIGHT_RED', 'BRIGHT_GREEN', 'BRIGHT_YELLOW', 
+    'BRIGHT_BLUE', 'BRIGHT_MAGENTA', 'BRIGHT_CYAN', 'BRIGHT_WHITE'
+  ],
+  muted: [
+    'MUTED_RED', 'MUTED_GREEN', 'MUTED_BLUE', 
+    'MUTED_YELLOW', 'MUTED_MAGENTA', 'MUTED_CYAN'
+  ],
+  styles: [
+    'BOLD', 'DIM', 'ITALIC', 'UNDERLINE', 
+    'BLINK', 'REVERSE', 'HIDDEN', 'STRIKE'
+  ]
+};
+
+const LoggerColorDemo = () => {
+  const [selectedCategory, setSelectedCategory] = useState('basic');
+  const [selectedColor, setSelectedColor] = useState('');
+  const [combinedStyle, setCombinedStyle] = useState('');
+
+  // Simulated log message generation
+  const generateLogMessage = () => {
+    const colorPart = selectedColor ? `<${selectedColor}>` : '';
+    const stylePart = combinedStyle 
+      ? combinedStyle.split('+').map(s => `<${s.trim()}>`).join('') 
+      : '';
+    return `${stylePart}${colorPart}AsyncLogger Color Demo Message${colorPart ? '</'+selectedColor+'>' : ''}${stylePart ? Array(combinedStyle.split('+').length).fill('</'+combinedStyle.split('+')[0]+'>').join('') : ''}`;
+  };
+
+  return (
+    <Card className="w-full max-w-2xl">
+      <CardHeader>
+        <CardTitle>AsyncLogger Color Demo</CardTitle>
+      </CardHeader>
+      <CardContent className="space-y-4">
+        <div className="grid grid-cols-2 gap-4">
+          <div>
+            <label className="block text-sm font-medium mb-2">Color Category</label>
+            <Select 
+              value={selectedCategory}
+              onValueChange={setSelectedCategory}
+            >
+              <SelectTrigger>
+                <SelectValue placeholder="Select Color Category" />
+              </SelectTrigger>
+              <SelectContent>
+                {Object.keys(ANSI_COLORS).map(category => (
+                  <SelectItem key={category} value={category}>
+                    {category.charAt(0).toUpperCase() + category.slice(1)} Colors
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
+          <div>
+            <label className="block text-sm font-medium mb-2">Color/Style</label>
+            <Select 
+              value={selectedColor}
+              onValueChange={setSelectedColor}
+            >
+              <SelectTrigger>
+                <SelectValue placeholder="Select Color/Style" />
+              </SelectTrigger>
+              <SelectContent>
+                {ANSI_COLORS[selectedCategory].map(color => (
+                  <SelectItem key={color} value={color}>
+                    {color}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
+        </div>
+        
+        {selectedCategory === 'styles' && (
+          <div>
+            <label className="block text-sm font-medium mb-2">Combine Multiple Styles (Optional)</label>
+            <Select 
+              value={combinedStyle}
+              onValueChange={setCombinedStyle}
+            >
+              <SelectTrigger>
+                <SelectValue placeholder="Add Styles" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="">No Additional Styles</SelectItem>
+                {ANSI_COLORS.styles.map(style => (
+                  <SelectItem key={style} value={style}>
+                    {style}
+                  </SelectItem>
+                ))}
+                {ANSI_COLORS.styles.map((style1, i) => 
+                  ANSI_COLORS.styles.slice(i+1).map(style2 => (
+                    <SelectItem key={`${style1}+${style2}`} value={`${style1}+${style2}`}>
+                      {style1} + {style2}
+                    </SelectItem>
+                  ))
+                )}
+              </SelectContent>
+            </Select>
+          </div>
+        )}
+
+        <div className="mt-4">
+          <h3 className="text-lg font-semibold mb-2">Generated Log Message</h3>
+          <pre className="bg-gray-100 p-3 rounded-md text-sm overflow-x-auto">
+            {generateLogMessage()}
+          </pre>
+        </div>
+      </CardContent>
+      <CardFooter>
+        <p className="text-sm text-gray-500">
+          Explore AsyncLogger's rich color and styling capabilities by selecting different categories and colors.
+        </p>
+      </CardFooter>
+    </Card>
+  );
+};
+
+export default LoggerColorDemo;

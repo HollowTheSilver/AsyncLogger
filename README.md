@@ -20,99 +20,17 @@ AsyncLogger is particularly well-suited for:
 
 ## 🚀 Live Demo and Real-World Scenarios
 
-### Comprehensive Logging Workflow
+### Interactive Color Formatting Demo
 
-AsyncLogger provides a robust solution for complex logging requirements across various application architectures. The following demonstration illustrates its advanced capabilities:
+AsyncLogger provides powerful, flexible log message styling through an intuitive color and formatting system. Our interactive demo allows you to explore the full range of color and style options:
 
-```python
-import asyncio
-from asyncLogger import AsyncLogger
-import logging
-import time
-import uuid
+[View Interactive Color Demo](https://github.com/HollowTheSilver/AsyncLogger/demos/color-formatting)
 
-class OrderProcessingSystem:
-    def __init__(self, logger):
-        self.logger = logger
-        self.order_queue = []
-
-    async def process_order(self, order_id):
-        """Simulate processing an order with comprehensive logging."""
-        start_time = time.time()
-        try:
-            # Simulate complex order processing
-            await self.logger.info(
-                "Order processing initiated", 
-                extras={
-                    "order_id": order_id,
-                    "stage": "initialization",
-                    "timestamp": time.time()
-                }
-            )
-
-            # Simulate potential processing stages
-            await asyncio.sleep(0.5)  # Simulated processing time
-            
-            if int(order_id) % 10 == 0:  # Simulate occasional errors
-                raise ValueError("Invalid order configuration")
-
-            await self.logger.info(
-                "Order processed successfully",
-                extras={
-                    "order_id": order_id,
-                    "processing_time": time.time() - start_time,
-                    "status": "completed"
-                }
-            )
-
-        except Exception as e:
-            await self.logger.error(
-                "Order processing failed", 
-                extras={
-                    "order_id": order_id,
-                    "error_type": type(e).__name__,
-                    "error_details": str(e)
-                }
-            )
-
-async def main():
-    # Initialize AsyncLogger with comprehensive configuration
-    logger = await AsyncLogger.create(
-        name="OrderProcessingSystem",
-        log_dir="logs",
-        color_enabled=True,
-        level=logging.INFO,
-        max_bytes=10_485_760,  # 10 MB log file size
-        backup_count=5
-    )
-
-    order_processing_system = OrderProcessingSystem(logger)
-
-    # Process multiple orders concurrently
-    async with asyncio.TaskGroup() as tg:
-        for _ in range(20):
-            order_id = str(uuid.uuid4())
-            tg.create_task(order_processing_system.process_order(order_id))
-
-    # Display logger health status
-    health_status = await logger.get_health_status()
-    await logger.info(
-        "Order processing batch completed", 
-        extras={"health_status": health_status}
-    )
-
-    await logger.shutdown()
-
-if __name__ == "__main__":
-    asyncio.run(main())
-```
-
-This live demo showcases:
-- Concurrent order processing
-- Comprehensive error handling
-- Context-rich logging
-- Performance monitoring
-- Robust async logging workflow
+Key Features Demonstrated:
+- Extensive color palette (basic, dark, bright, muted)
+- Text styling options (bold, italic, underline)
+- Dynamic color and style combination
+- Real-time log message preview
 
 ## 🏗️ Architecture Overview
 
