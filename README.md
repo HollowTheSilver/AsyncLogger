@@ -9,72 +9,22 @@
 
 AsyncLogger is an enterprise-grade logging framework engineered to address the complex logging requirements of modern Python applications. Designed with performance and security at its core, the library provides a robust, asynchronous logging solution that seamlessly integrates advanced data protection mechanisms with flexible configuration options.
 
-## ▶️ Live Demo
+The framework empowers developers to implement comprehensive logging strategies with minimal computational overhead, ensuring critical application insights are captured efficiently and securely across diverse computing environments.
 
-Experience AsyncLogger in action:
-
-<a href="https://asciinema.org/a/YOUR_DEMO_ID" target="_blank">
-    <img src="https://asciinema.org/a/YOUR_DEMO_ID.svg" />
-</a>
-
-Watch real-time logging with color output, automatic rotation, and advanced formatting capabilities. This demo showcases AsyncLogger's powerful features in a real-world scenario.
-
-## 🏗️ Architecture
-
-AsyncLogger follows a robust, modular architecture designed for performance and reliability:
-
-```mermaid
-flowchart TD
-    A[Application Code] --> B[AsyncLogger]
-    B --> C{Handler Type}
-    C -->|Console Output| D[Console Handler]
-    C -->|File Output| E[Rotating File Handler]
-    
-    B --> F[Message Processing]
-    F --> G[Message Sanitization]
-    F --> H[Extras Processing]
-    F --> I[Security Checks]
-    
-    E --> J[Log Files]
-    J --> K[Log Rotation]
-    
-    B --> L[Metrics & Health]
-    L --> M[Performance Stats]
-    L --> N[Error Tracking]
-    
-    style B fill:#f9f,stroke:#333,stroke-width:4px
-    style F fill:#bbf,stroke:#333,stroke-width:2px
-    style L fill:#bfb,stroke:#333,stroke-width:2px
-```
-
-## ⚡ Core Features
-
-[![Async Support](https://img.shields.io/badge/Async-Enabled-success?style=for-the-badge&logo=python&logoColor=white)]()
-[![Security](https://img.shields.io/badge/Security-Enhanced-blue?style=for-the-badge&logo=shield&logoColor=white)]()
-[![Performance](https://img.shields.io/badge/Performance-Optimized-orange?style=for-the-badge&logo=lightning&logoColor=white)]()
-[![Reliability](https://img.shields.io/badge/Reliability-Guaranteed-green?style=for-the-badge&logo=checkmark&logoColor=white)]()
-
-- **Fully Asynchronous Design**: Zero-blocking log operations
-- **Advanced Security Mechanisms**: Comprehensive protection against log injection
-- **Intelligent Log Management**: Automatic file rotation and sanitization
-- **Flexible Configuration**: Highly customizable logging behavior
-- **Scalable Architecture**: Efficient handling of high-volume logging
-
-## 🤔 Why AsyncLogger?
-
-| Feature | AsyncLogger | Traditional Loggers | Benefits |
-|---------|------------|---------------------|-----------|
-| Asynchronous Operation | ✅ Native async/await | ❌ Blocking operations | Better performance, no I/O blocking |
-| Security Features | ✅ Built-in protection | ⚠️ Basic or none | Secure against log injection, PII protection |
-| Performance | ✅ 10,000+ msgs/sec | ⚠️ Varies | Higher throughput, lower latency |
-| Color Support | ✅ Rich ANSI colors | ⚠️ Limited | Better readability, custom styling |
-| Error Resilience | ✅ Comprehensive | ⚠️ Basic | Reliable logging in all conditions |
-
-### Best For:
+AsyncLogger is particularly well-suited for:
 - High-throughput microservices requiring reliable logging
 - Security-critical applications needing audit trails
 - Distributed systems with complex logging requirements
 - Applications requiring real-time log analysis
+
+## 🌟 Key Differentiators
+
+### Comprehensive Logging Capabilities
+- **Fully Asynchronous Design**: Zero-blocking log operations
+- **Advanced Security Mechanisms**: Comprehensive protection against log injection
+- **Intelligent Log Management**: Automatic file rotation and sanitization
+- **Flexible Configuration**: Highly customizable logging behavior
+- **Scalable Architecture**: Efficient handling of high-volume logging with minimal overhead
 
 ## 🛠 Installation and Setup
 
@@ -119,23 +69,41 @@ Get started with AsyncLogger in minutes:
 ```python
 import asyncio
 from asyncLogger import AsyncLogger
+import logging
 
 async def quick_example():
-    # Create a basic logger
-    logger = await AsyncLogger.create(
-        name="QuickStart",
-        log_dir="logs"
-    )
+    try:
+        # Create a basic logger
+        logger = await AsyncLogger.create(
+            name="QuickStart",
+            log_dir="logs",  # Ensure this directory exists or can be created
+            color_enabled=True,
+            level=logging.INFO
+        )
+        
+        # Log your first message
+        await logger.info("Hello AsyncLogger!")
+        
+        # Add context with extras
+        await logger.info("User logged in", extras={"user_id": "123"})
+        
+        # Demonstrate different log levels
+        await logger.debug("This is a debug message")
+        await logger.warning("This is a warning message")
+        await logger.error("This is an error message")
+        
+        # Show health status
+        health_status = await logger.get_health_status()
+        print("Logger Health Status:", health_status)
     
-    # Log your first message
-    await logger.info("Hello AsyncLogger!")
+    except Exception as e:
+        print(f"An error occurred: {e}")
     
-    # Add context with extras
-    await logger.info("User logged in", extras={"user_id": "123"})
-    
-    # Clean up
-    await logger.shutdown()
+    finally:
+        # Always ensure logger is shut down
+        await logger.shutdown()
 
+# Run the example
 if __name__ == "__main__":
     asyncio.run(quick_example())
 ```
@@ -464,3 +432,4 @@ Open-source license (MIT/Apache recommended)
 ---
 
 **Disclaimer**: AsyncLogger is continually evolving. Always refer to the latest documentation and release notes.
+```
