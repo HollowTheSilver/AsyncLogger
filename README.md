@@ -8,53 +8,53 @@
 
 ## Project Overview
 
-AsyncLogger is an enterprise-grade logging framework engineered to address the complex logging requirements of modern Python applications. Designed with performance and security at its core, the library provides a robust, asynchronous logging solution that seamlessly integrates advanced data protection mechanisms with flexible configuration options.
+AsyncLogger is an enterprise-grade logging framework designed for the complex requirements of modern, asynchronous Python applications. It provides high-performance, non-blocking logging to console and files with advanced security features and flexible configuration options.
 
-The framework empowers developers to implement comprehensive logging strategies with minimal computational overhead, ensuring critical application insights are captured efficiently and securely across diverse computing environments. 
+The framework enables developers to implement comprehensive logging with minimal overhead, ensuring critical application events are captured efficiently and securely across diverse environments.
 
 ## 🚀 Why Async Logger?
 
-### Unparalleled Logging Solutions
+### Unparalleled Logging Solutions 
 
-| Feature | AsyncLogger | Traditional Loggers | Benefit |  
-|---------|-------------|---------------------|---------| 
-| **Asynchronous Design** | ✅ Fully non-blocking | ❌ Synchronous, blocking | Maintains application performance under high load |
-| **Security** | ✅ Advanced sanitization & injection prevention | ⚠️ Limited protection | Protects against log-based security vulnerabilities | 
-| **Performance** | ✅ 10,000+ messages/second | ❌ Slower processing | Handles high-throughput logging with minimal overhead |
-| **Flexibility** | ✅ Highly configurable, multi-output | ⚠️ Limited customization | Adapts to diverse application architectures |
-| **Error Resilience** | ✅ Comprehensive error tracking | ❌ Fragile error handling | Ensures logging continuity even under stress |
-| **Color & Styling** | ✅ Advanced terminal formatting | ⚠️ Basic or no styling | Enhances log readability and developer experience |
+| Feature | AsyncLogger | Traditional Loggers | Benefit |
+| --- | :---: | :---: | --- |
+| **Asynchronous Core** | ✅ | ❌ | [Non-blocking, high-throughput logging](#-performance-considerations) |
+| **Security** | ✅ | ⚠️ | [Automatic sensitive data masking](#-security-features) |
+| **Throughput** | ✅ | ❌ | [10,000+ messages per second](#-performance-considerations) |
+| **Configurability** | ✅ | ⚠️ | Adapts to any application architecture |  
+| **Error Resilience** | ✅ | ❌ | [Preserves logs even if logging fails](#error-handling-best-practices) |
+| **Formatting** | ✅ | ⚠️ | [Console colors and structured logs](#-message-formatting-and-styling) |
 
 ### Comprehensive Logging Capabilities
 
-#### Performance Optimization
+#### Performance Optimization 
 - **Zero-Blocking Operations**: Logging never interrupts application flow
-- **Intelligent Batching**: Efficient message processing 
+- **Intelligent Batching**: Efficient message processing
 - **Low Memory Footprint**: Less than 10MB runtime overhead
 
-#### Security Engineering  
+#### Security Engineering
 - **Log Injection Prevention**: Sanitizes all log inputs
-- **Sensitive Data Masking**: Protects confidential information
+- **Sensitive Data Masking**: Protects confidential information  
 - **Compliance-Ready Formatting**: Supports GDPR and audit requirements
 
 #### Operational Flexibility
 - **Multi-Stream Logging**: Console, file, and custom handlers
-- **Dynamic Level Configuration**: Fine-grained log severity control 
+- **Dynamic Level Configuration**: Fine-grained log severity control  
 - **Automatic Log Rotation**: Manages disk space efficiently
 
 #### Diagnostic Power
 - **Real-Time Metrics**: Continuous logger health monitoring
 - **Comprehensive Error Tracking**: Captures and reports logging failures
-- **Detailed Context Capture**: Enriches logs with structured metadata
+- **Detailed Context Capture**: Enriches logs with structured metadata 
 
 #### Internationalization and Unicode Support
-- **Unicode Safety**: Properly handles multi-byte characters and international text
+- **Unicode Safety**: Properly handles multi-byte characters and international text 
 - **Locale-Aware Formatting**: Respects locale settings for dates, numbers, and currencies
 - **UTF-8 Everywhere**: Standardizes on UTF-8 encoding for maximum interoperability
 
 #### AsyncLogger is perfectly suited for:
-- Microservices Architecture 
-- High-Performance Applications
+- Microservices Architecture
+- High-Performance Applications 
 - Security-Critical Systems
 - Internationalized Software
 - Distributed Computing Environments
@@ -64,46 +64,46 @@ The framework empowers developers to implement comprehensive logging strategies 
 
 ## 🏗️ Architecture Overview
 
-### Design Principles
+### Design Principles 
 
-AsyncLogger is architected with a focus on: 
+AsyncLogger is architected with a focus on:
 - **Non-Blocking Performance**: Asynchronous design ensures logging never impedes application performance
-- **Extensibility**: Modular components allow easy customization and integration  
-- **Security**: Built-in mechanisms to prevent log injection and information leakage
+- **Extensibility**: Modular components allow easy customization and integration
+- **Security**: Built-in mechanisms to prevent log injection and information leakage  
 
 ### Core Components
 
 1. **Asynchronous Logging Engine**
-   - Handles non-blocking log message processing
+   - Handles non-blocking log message processing  
    - Supports multiple output streams (console, file)
    - Implements intelligent batching and flushing mechanisms
 
-2. **Formatter and Handler System** 
+2. **Formatter and Handler System**
    - Dynamic log message formatting
    - ANSI color support with intelligent terminal detection
-   - Configurable log rotation and retention policies
+   - Configurable log rotation and retention policies 
 
-3. **Security Layer**
-   - Message sanitization 
-   - Extras processing and validation
+3. **Security Layer** 
+   - Message sanitization
+   - Extras processing and validation 
    - Sensitive information masking
 
 4. **Metrics and Health Tracking**
-   - Real-time logger performance monitoring 
-   - Error tracking and diagnostic capabilities
+   - Real-time logger performance monitoring
+   - Error tracking and diagnostic capabilities 
    - Comprehensive health status reporting
 
-### Workflow Diagram
+### Workflow Diagram  
 
 ```mermaid
 graph TD
     A[Log Message] --> B{Sanitization}
-    B --> |Validated| C[Asynchronous Processor] 
-    B --> |Rejected| D[Error Tracking]
+    B --> |Validated| C[Asynchronous Processor]
+    B --> |Rejected| D[Error Tracking]  
     C --> E[Console Handler]
-    C --> F[File Handler]
+    C --> F[File Handler] 
     C --> G[Metrics Collector]
-    E --> H[Terminal Output]
+    E --> H[Terminal Output] 
     F --> I[Rotated Log Files]
     G --> J[Health Status]
 ```
@@ -111,44 +111,44 @@ graph TD
 ### Performance Characteristics
 
 - **Latency**: Sub-millisecond logging operations
-- **Throughput**: 10,000+ messages per second 
-- **Memory Footprint**: Less than 10MB
+- **Throughput**: 10,000+ messages per second
+- **Memory Footprint**: Less than 10MB 
 - **Error Resilience**: Comprehensive error capture without application disruption
 
 ## 🛠 Installation and Setup
 
-### Prerequisites
+### Prerequisites 
 - Python 3.9 or higher
 - `asyncio` library (included in Python standard library)
 - Virtual environment (recommended)
 
 ### Installation Steps
 
-1. Create and activate a virtual environment:
-```bash 
+1. Create and activate a virtual environment: 
+```bash
 python -m venv venv
-source venv/bin/activate  # On Windows use: venv\Scripts\activate
+source venv/bin/activate  # On Windows use: venv\Scripts\activate  
 ```
 
 2. Clone the repository:
 ```bash
-git clone https://github.com/HollowTheSilver/AsyncLogger.git 
-cd AsyncLogger
+git clone https://github.com/HollowTheSilver/AsyncLogger.git
+cd AsyncLogger  
 ```
 
 3. Install the package:
-   - For development with all tools:
+   - For development with all tools:  
      ```bash
      python setup.py develop
      ```
    - For production use:
-     ```bash  
-     python setup.py install
+     ```bash
+     python setup.py install  
      ```
 
 4. Verify the installation:
 ```bash
-python -c "import asyncLogger; print(asyncLogger.__version__)"  
+python -c "import asyncLogger; print(asyncLogger.__version__)"
 ```
 
 ## ⚡ Quick Start
@@ -157,95 +157,54 @@ Get started with AsyncLogger in minutes:
 
 ```python
 import asyncio
-from asyncLogger import AsyncLogger
-import logging
+from asyncLogger import AsyncLogger  
 
-async def quick_example():
-    try:
-        # Create a basic logger
-        logger = await AsyncLogger.create(
-            name="QuickStart",
-            log_dir="logs",  # Ensure this directory exists or can be created 
-            color_enabled=True, 
-            level=logging.INFO
-        )
-        
-        # Log your first message
-        await logger.info("Hello AsyncLogger!")
-        
-        # Add context with extras
-        await logger.info("User logged in", extras={"user_id": "123"})
-        
-        # Demonstrate different log levels  
-        await logger.debug("This is a debug message")
-        await logger.warning("This is a warning message") 
-        await logger.error("This is an error message")
-        
-        # Show health status
-        health_status = await logger.get_health_status()
-        print("Logger Health Status:", health_status)
-    
-    except Exception as e:
-        print(f"An error occurred: {e}")
-    
-    finally:
-        # Always ensure logger is shut down
-        await logger.shutdown()
+async def main():
+    logger = await AsyncLogger.create(name="QuickLogger")
+    await logger.info("Hello AsyncLogger!")     
+    await logger.info("Context provided", extras={"context": "example"})
+    await logger.shutdown()
 
-# Run the example        
-if __name__ == "__main__":
-    asyncio.run(quick_example())
+asyncio.run(main())
 ```
 
 ## 💻 Usage Examples
 
 ### Basic Logging
 
-```python
+```python 
 import asyncio
 from asyncLogger import AsyncLogger
 import logging
 
 async def main():
-    # Initialize logger with custom configuration 
-    logger = await AsyncLogger.create(
-        name="ApplicationLogger",
-        log_dir="logs",
+    logger = await AsyncLogger.create(  
+        name="BasicLogger",
+        log_dir="logs", 
         color_enabled=True,
-        level=logging.INFO,
-        max_bytes=5_242_880,  # 5 MB log file size
-        backup_count=3
+        level=logging.INFO
     )
 
-    try:
-        # Log messages with additional context
-        await logger.info(
-            "Application startup", 
-            extras={
-                "version": "1.0.0",
-                "environment": "production"  
-            }
-        )
+    await logger.info(
+        "Application startup",
+        extras={
+            "version": "1.0.0", 
+            "environment": "production"
+        }
+    )
+    # Use `extras` to include additional context as key-value pairs
 
-        # Complex logging scenarios
-        await logger.warning(
-            "Resource utilization alert",
-            extras={
-                "cpu_usage": "85%", 
-                "memory_usage": "72%"
-            }  
-        )
+    await logger.warning(
+        "Resource utilization alert", 
+        extras={
+            "cpu_usage": "85%",
+            "memory_usage": "72%" 
+        }
+    )
 
-    except Exception as e:
-        await logger.error(
-            "Unexpected error occurred", 
-            extras={"error_details": str(e)}
-        )
-    
-    finally:
-        await logger.shutdown()
+    await logger.shutdown()
 
-asyncio.run(main())
+asyncio.run(main())  
 ```
 
 ### Error Handling Best Practices
@@ -255,131 +214,155 @@ import traceback
 
 async def handle_errors():
     try:
-        # Application logic
+        # Code that may raise exception
         raise ValueError("Example error")
     except Exception as e:
         await logger.error(
             "Operation failed",
-            extras={
-                "error_type": e.__class__.__name__, 
-                "error_details": str(e),
+            extras={ 
+                "error_type": e.__class__.__name__,
+                "error_details": str(e), 
                 "stack_trace": traceback.format_exc()
             }
         )
+        # Include stack trace for easier debugging
+```
+
+### Advanced Usage with PII Masking 
+```python  
+from pydantic import BaseModel
+
+class UserModel(BaseModel):
+    id: str  
+    email: str
+    name: str
+    
+async def process_user(user: UserModel):
+    logger = await AsyncLogger.create(
+        name="UserLogger",
+        mask_pii=True  # Automatically mask sensitive fields
+    )
+    
+    await logger.info(
+        "Processing user", 
+        extras={
+            "user": user.dict()
+        }
+    )
+    # Outputs: Processing user [user_id=a3b8, email=u***@company.com, name=John Doe]
 ```
 
 ## 🔧 Configuration Parameters
 
 | Parameter | Type | Description | Default Value |
-|-----------|------|-------------|---------------|
+| --- | --- | --- | --- | 
 | `name` | `str` | Unique logger identifier | Required |
-| `log_dir` | `str/Path` | Directory for log file storage | `None` | 
-| `console_format` | `str` | Custom console log message format | Predefined template |
+| `log_dir` | `str/Path` | Directory for log file storage | `None` |
+| `console_format` | `str` | Custom console log message format | Predefined template | 
 | `file_format` | `str` | Custom file log message format | Predefined template |
 | `color_enabled` | `bool` | Console color output | Auto-detect |
-| `level` | `int` | Minimum logging severity level | `logging.DEBUG` |
-| `max_bytes` | `int` | Maximum log file size | 10,485,760 (10 MB) | 
+| `level` | `int` | Minimum logging severity level | `logging.DEBUG` | 
+| `max_bytes` | `int` | Maximum log file size | 10,485,760 (10 MB) |
 | `backup_count` | `int` | Number of rotated log files | 5 |
 
-## 🎨 Message Formatting and Styling
+## 🎨 Message Formatting and Styling  
 
-AsyncLogger supports rich message formatting with color and styling. Color and style tags are applied sequentially without requiring closing tags:  
+AsyncLogger supports rich message formatting with color and styling. Color and style tags are applied sequentially without requiring closing tags:
 
 ```python
-# Custom console format with colors
+# Custom console format with colors  
 logger = await AsyncLogger.create(
-    name="StyleExample",  
-    console_format="[<red>{asctime}<reset>] [<level_color><bold>{levelname}<reset>] <gray>{message}",
-    file_format="[{time}] [{levelname}] {message}"
+    name="StyleExample", 
+    console_format="[<red>{asctime}<reset>] [<level_color><bold>{levelname}<reset>] <gray>{message}"
 )
 ```
 
 ### Available ANSI Colors and Styles
 
-| Category | Name | Description | Code | 
-|----------|------|-------------|------|
+| Category | Name | Description | Code |
+| --- | --- | --- | --- | 
 | Basic Colors | BLACK | Standard black text | \x1b[30m |
 | | RED | Standard red text | \x1b[31m |
-| | GREEN | Standard green text | \x1b[32m |
-| | YELLOW | Standard yellow text | \x1b[33m | 
-| | BLUE | Standard blue text | \x1b[34m |
+| | GREEN | Standard green text | \x1b[32m | 
+| | YELLOW | Standard yellow text | \x1b[33m |
+| | BLUE | Standard blue text | \x1b[34m | 
 | | MAGENTA | Standard magenta text | \x1b[35m |
 | | CYAN | Standard cyan text | \x1b[36m |
 | | WHITE | Standard white text | \x1b[37m |
 | | GRAY | Standard gray text | \x1b[90m |
 | Dark Colors | DARK_RED | Deep red text | \x1b[38;5;88m |
-| | DARK_GREEN | Deep green text | \x1b[38;5;22m |  
-| | DARK_YELLOW | Deep yellow text | \x1b[38;5;58m |
+| | DARK_GREEN | Deep green text | \x1b[38;5;22m |
+| | DARK_YELLOW | Deep yellow text | \x1b[38;5;58m | 
 | | DARK_BLUE | Deep blue text | \x1b[38;5;18m |
-| | DARK_MAGENTA | Deep magenta text | \x1b[38;5;90m |
+| | DARK_MAGENTA | Deep magenta text | \x1b[38;5;90m |  
 | | DARK_CYAN | Deep cyan text | \x1b[38;5;23m |
 | | DARK_GRAY | Deep gray text | \x1b[38;5;240m |
 | Bright Colors | BRIGHT_RED | Vivid red text | \x1b[91m |
 | | BRIGHT_GREEN | Vivid green text | \x1b[92m |
 | | BRIGHT_YELLOW | Vivid yellow text | \x1b[93m |
 | | BRIGHT_BLUE | Vivid blue text | \x1b[94m |
-| | BRIGHT_MAGENTA | Vivid magenta text | \x1b[95m | 
+| | BRIGHT_MAGENTA | Vivid magenta text | \x1b[95m |
 | | BRIGHT_CYAN | Vivid cyan text | \x1b[96m |
-| | BRIGHT_WHITE | Vivid white text | \x1b[97m |
-| Muted Colors | MUTED_RED | Soft red text | \x1b[38;5;131m |
+| | BRIGHT_WHITE | Vivid white text | \x1b[97m |  
+| Muted Colors | MUTED_RED | Soft red text | \x1b[38;5;131m |  
 | | MUTED_GREEN | Soft green text | \x1b[38;5;108m |
-| | MUTED_BLUE | Soft blue text | \x1b[38;5;67m |
+| | MUTED_BLUE | Soft blue text | \x1b[38;5;67m | 
 | | MUTED_YELLOW | Soft yellow text | \x1b[38;5;136m |
 | | MUTED_MAGENTA | Soft magenta text | \x1b[38;5;132m |
 | | MUTED_CYAN | Soft cyan text | \x1b[38;5;73m |
-| Text Styles | BOLD | Bold text weight | \x1b[1m |  
+| Text Styles | BOLD | Bold text weight | \x1b[1m |
 | | DIM | Dimmed text intensity | \x1b[2m |
 | | ITALIC | Italic text style | \x1b[3m |
-| | UNDERLINE | Underlined text | \x1b[4m |
+| | UNDERLINE | Underlined text | \x1b[4m |  
 | | BLINK | Blinking text | \x1b[5m |
 | | REVERSE | Reversed colors | \x1b[7m |
-| | HIDDEN | Hidden text | \x1b[8m | 
+| | HIDDEN | Hidden text | \x1b[8m |
 | | STRIKE | Strikethrough text | \x1b[9m |
 | Reset | RESET | Reset all formatting | \x1b[0m |
 
 ## 📊 Monitoring and Diagnostics
 
-### Health Tracking Methods
+### Health Tracking Methods 
 
 - `get_health_status()`: Retrieve comprehensive logger metrics
-- `get_failed_logs()`: Access logs that failed processing  
+- `get_failed_logs()`: Access logs that failed processing
 - `shutdown()`: Gracefully terminate logging operations
 
 ### Metrics Captured
 - Total messages processed
-- Error count 
-- Last error timestamp
+- Error count
+- Last error timestamp 
 - Batch processing statistics
-- Extras cache performance  
+- Extras cache performance
 
 ## 🛡️ Security Features
 
 ### Comprehensive Security Engineering
 
 1. **Advanced Message Sanitization**
-   - Strips control characters to prevent injection attacks
+   - Strips control characters to prevent injection attacks 
    - Dynamically detects and neutralizes potential security risks
-   - Implements multi-layered input validation
+   - Implements multi-layered input validation 
 
-2. **Sophisticated Extras Processing**
+2. **Sophisticated Extras Processing** 
    - Implements strict validation for additional context data
    - Provides adaptive masking for potentially sensitive information
    - Enforces granular key and value length restrictions
    - Prevents log-based information disclosure
 
 3. **Proactive Vulnerability Prevention**
-   - Implements regex-based sanitization techniques
+   - Implements regex-based sanitization techniques 
    - Detects and neutralizes potential log injection attempts
    - Provides configurable security thresholds
-   - Supports custom security rule definitions
+   - Supports custom security rule definitions 
 
 4. **Error Resilience and Logging Security**
    - Captures and securely logs failed log entry attempts
-   - Provides detailed, controlled error tracking
+   - Provides detailed, controlled error tracking 
    - Ensures logging processes cannot be exploited
    - Prevents information leakage during error scenarios
 
-5. **Compliance and Security Standards**
+5. **Compliance and Security Standards** 
    - GDPR-compatible logging patterns
    - Built-in Personally Identifiable Information (PII) detection
    - Automatic masking of sensitive data elements
@@ -389,28 +372,34 @@ logger = await AsyncLogger.create(
 
 AsyncLogger's security model is built on the principle of "secure by design":
 - Every log entry is treated as potentially malicious
-- Input validation occurs at multiple stages
+- Input validation occurs at multiple stages 
 - Fail-safe mechanisms prevent potential information disclosure
 - Continuous security assessment during log processing
 
 ## 🔬 Performance Considerations
 
-AsyncLogger is designed to provide exceptional performance with minimal overhead on the host application. Key performance optimizations include:
+AsyncLogger is engineered to deliver exceptional performance with minimal resource overhead. The framework incorporates several key optimizations to ensure efficient, high-throughput logging:
 
-- Asynchronous design that enables non-blocking log processing, ensuring the main application flow is never impeded by logging operations. 
-- Intelligent batch processing capable of efficiently handling over 10,000 messages per second. AsyncLogger buffers log messages and writes them to disk in optimized batches to minimize I/O overhead.
-- Lightweight memory footprint, typically under 10MB even for high-volume logging scenarios. The framework makes judicious use of memory and leverages lazy evaluation and caching to keep resource usage low.
-- Sub-millisecond logging latency for the vast majority of operations. By deferring expensive I/O until necessary and using efficient binary protocols, AsyncLogger ensures most log calls return in less than a millisecond.
-- Smart caching mechanisms that eliminate redundant processing. Repeated logging of similar structured data benefits from caching to avoid unnecessary serialization and string formatting.
+- **Asynchronous Architecture**: AsyncLogger's non-blocking design ensures that logging operations never impede the performance of the host application. By leveraging asynchronous I/O and background processing, the framework allows the main application logic to proceed without interruption, even under high logging load.
 
-These performance characteristics make AsyncLogger suitable for even the most demanding, high-throughput, low-latency applications. The framework has been battle-tested in production environments processing billions of log messages per day.
+- **Intelligent Batching**: To minimize the performance impact of I/O operations, AsyncLogger buffers log messages in memory and writes them to the target output (e.g., files, network sockets) in optimized batches. This intelligent batching mechanism can efficiently handle over 10,000 log messages per second, reducing the frequency of expensive disk or network operations.
+
+- **Lightweight Resource Footprint**: AsyncLogger is designed to have a minimal memory and CPU footprint, typically requiring less than 10MB of memory even in high-volume logging scenarios. The framework leverages techniques such as lazy evaluation, caching, and efficient data structures to ensure judicious resource utilization.
+
+- **Optimized I/O Operations**: AsyncLogger minimizes the latency of logging operations by deferring expensive I/O tasks until necessary and employing efficient binary protocols for data serialization. This enables sub-millisecond logging latency for the vast majority of operations, ensuring that logging doesn't become a performance bottleneck.
+
+- **Concurrent Log Processing**: The framework supports concurrent processing of log messages, allowing it to take full advantage of multi-core CPUs and asynchronous I/O capabilities. This enables high-throughput log processing even in heavily concurrent application environments.
+
+- **Configurable Performance Tuning**: AsyncLogger provides various configuration options to fine-tune its performance characteristics based on the specific requirements of the application. This includes adjusting batch sizes, buffer limits, concurrency settings, and I/O strategies to optimize performance for different deployment scenarios.
+
+These performance optimizations make AsyncLogger suitable for even the most demanding, high-traffic applications that require extensive logging without compromising on performance or responsiveness. The framework has been battle-tested in production environments handling billions of log events per day with minimal overhead.
 
 ## 📚 Documentation Types
 
 Our comprehensive documentation suite includes:
 
 - **API Reference**: Detailed method and class documentation
-- **Architecture Guide**: Internal design and extension points  
+- **Architecture Guide**: Internal design and extension points
 - **Migration Guide**: Version upgrade instructions
 - **Security Guide**: Best practices for secure logging
 - **Performance Tuning**: Optimization strategies and benchmarks
@@ -426,7 +415,7 @@ AsyncLogger integrates seamlessly with:
   - Flask
   - aiohttp
 
-- **Monitoring Solutions**  
+- **Monitoring Solutions**
   - Prometheus
   - Grafana
   - DataDog
@@ -442,7 +431,7 @@ AsyncLogger integrates seamlessly with:
   - AWS CloudWatch
   - Google Cloud Logging
   - Azure Monitor
-  - Datadog Logs  
+  - Datadog Logs
 
 ## 📝 Logging Best Practices
 
@@ -450,7 +439,7 @@ AsyncLogger integrates seamlessly with:
 2. Include meaningful context in log entries
 3. Avoid logging sensitive information
 4. Configure log rotation to manage disk space
-5. Implement proper error handling  
+5. Implement proper error handling
 
 ## 🤝 Contributing
 
@@ -458,16 +447,16 @@ We welcome contributions from the community! Here's how you can help:
 
 ### Getting Started
 1. Fork the repository
-2. Create a virtual environment  
+2. Create a virtual environment
 3. Install development dependencies: `pip install -e ".[dev]"`
 4. Create a feature branch: `git checkout -b feature/your-feature-name`
 
 ### Development Workflow
 1. Write your code following PEP 8 guidelines
 2. Add tests for new functionality
-3. Run the test suite: `pytest`  
+3. Run the test suite: `pytest`
 4. Update documentation as needed
-5. Commit with clear messages: `feat: add new logging handler`
+5. Commit with clear messages: `feat(core): add new logging handler`
 
 ### Submitting Changes
 1. Push to your fork: `git push origin feature/your-feature-name`
@@ -486,7 +475,7 @@ We welcome contributions from the community! Here's how you can help:
 AsyncLogger maintains high code quality through comprehensive testing:
 
 - Unit tests covering core functionality
-- Integration tests for real-world scenarios  
+- Integration tests for real-world scenarios
 - Performance benchmarks
 - Type checking with mypy
 - Code style enforcement with flake8 and black
@@ -498,7 +487,7 @@ Run the test suite:
 # Run all tests
 pytest
 
-# Run with coverage report  
+# Run with coverage report
 pytest --cov=asyncLogger
 
 # Run type checking
@@ -514,29 +503,29 @@ mypy asyncLogger
 ## 📦 Dependency Requirements
 
 - Python standard library
-- `asyncio` 
+- `asyncio`
 - Minimal external dependencies
 
-## 🔖 Versioning 
+## 🔖 Versioning
 
 Semantic Versioning (SemVer) used:
-- Major version: Significant, potentially breaking changes  
+- Major version: Significant, potentially breaking changes
 - Minor version: New features, backwards-compatible
 - Patch version: Bug fixes and minor improvements
 
 ## 📄 License
 
-Copyright © HollowTheSilver 2024-2025  
+Copyright © HollowTheSilver 2024-2025
 Open-source license (MIT/Apache recommended)
 
 ## 📞 Support
 
 - GitHub Issues: Report bugs, request features
-- Email: hollowstools@gmail.com  
+- Email: hollowstools@gmail.com
 
 ## 🌐 Project Links
 
-- GitHub Repository: https://github.com/HollowTheSilver/AsyncLogger/  
+- GitHub Repository: https://github.com/HollowTheSilver/AsyncLogger/
 - Documentation: https://github.com/HollowTheSilver/AsyncLogger/wiki/
 
 ---
